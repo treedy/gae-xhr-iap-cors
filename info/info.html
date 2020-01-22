@@ -23,7 +23,7 @@ app.controller('myCtrl', function($scope, $http) {
   .then(function(response) {
       $scope.message = response.data;
   });
-  $http.get("//hellow-dot-" + window.location.hostname)
+  $http.get("//hellow-dot-" + window.location.hostname, {withCredentials: true})
   .then(function(response) {
       $scope.hellow = response.data;
   });
