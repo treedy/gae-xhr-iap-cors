@@ -15,3 +15,8 @@
 service: hellow
 
 runtime: go113
+
+handlers:
+  - url: /loaded\.js
+    static_files: loaded.js
+    upload: loaded.js

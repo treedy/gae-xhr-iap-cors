@@ -1,0 +1,1 @@
+const HELLOW_LOADED_JS = true;
