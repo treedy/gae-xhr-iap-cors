@@ -23,6 +23,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 // [END import]
@@ -51,10 +52,18 @@ func main() {
 
 // indexHandler responds to requests with our greeting.
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	//Allow CORS here By * or specific origin
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	fmt.Fprint(w, "Hello, World!")
 
+	log.Printf("Host is %s", r.Host)
+	myHostname := strings.SplitAfterN(r.Host, "-dot-", 2)[1] // Get the base hostname from our own hostname
+
+	//Allow CORS here By * or specific origin
+	w.Header().Set("Access-Control-Allow-Origin", "https://"+myHostname)
+	w.Header().Set("Access-Control-Allow-Credentials", "true")
+
+	if r.Method == "OPTIONS" { // If it's an OPTIONS request, don't return any other data
+		return
+	}
+	fmt.Fprint(w, "Hello, World!")
 }
 
 // [END indexHandler]
