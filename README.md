@@ -1,0 +1,1 @@
+This is a sample app for the [Medium article](https://medium.com/@treedy/gae-xhr-cors-and-iap-498a59bff249) about GAE, XHR, CORS, and IAP.

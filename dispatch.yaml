@@ -1,0 +1,6 @@
+dispatch:
+  - url: "*/info"
+    service: info
+
+  - url: "*/message"
+    service: info
